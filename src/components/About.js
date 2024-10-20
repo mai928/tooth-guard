@@ -1,7 +1,7 @@
 const About =()=>{
     return(
 
-        <div>
+        <div className="bg-background">
             <p>About</p>
         </div>
     )
