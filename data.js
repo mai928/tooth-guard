@@ -1,86 +1,71 @@
-export const sliderData = [
+export const Headers = [
     {
         id: 1,
-        title: 'about true machine',
-        des: 'Based on more than 20 years of experience in this field Value technologies is able to satisfy any request of the customers in the engineering solutions sector, and in the apparel and non-apparel industry sector. We are focusing to deliver equipments with different qualities of materials.',
-        src: '/assets/slider_1.jpg'
-    },
-    {
-        id: 2,
-        title: 'about true machine',
-        des: 'Based on more than 20 years of experience in this field Value technologies is able to satisfy any request of the customers in the engineering solutions sector, and in the apparel and non-apparel industry sector. We are focusing to deliver equipments with different qualities of materials.',
-        src: '/assets/slider_1.jpg'
-    }, {
-        id: 3,
-        title: 'about true machine',
-        des: 'Based on more than 20 years of experience in this field Value technologies is able to satisfy any request of the customers in the engineering solutions sector, and in the apparel and non-apparel industry sector. We are focusing to deliver equipments with different qualities of materials.',
-        src: '/assets/slider_1.jpg'
+        title: 'Where Your Smile Comes First',
+        des: 'At Tooth Guard Clinics, we provide top-tier dental care that transforms lives one smile at a time. Our experienced team is here to deliver exceptional service, whether you re here for a routine checkup or advanced cosmetic dentistry.',
+        src: '/assets/asxsa.jpg'
     }
 ]
 
-export const partnerslider = [
+export const ServicesSections = [
     {
         id: 1,
-        title: 'Kimla',
-        src: '/assets/partner.jpg',
+        title: 'Experts You Can Trust',
+        des: 'Our dentists have over 20 years of experience and a passion for excellence.',
     },
     {
         id: 2,
-        title: 'Kimla',
-        src: '/assets/partner.jpg',
+        title: 'Experts You Can Trust',
+        des: 'Our dentists have over 20 years of experience and a passion for excellence.',
     },
     {
         id: 3,
-        title: 'Kimla',
-        src: '/assets/partner.jpg',
+       title: 'Experts You Can Trust',
+        des: 'Our dentists have over 20 years of experience and a passion for excellence.',
+    }
+]
+export const Service = [
+    {
+        id: 1,
+        title: 'Dental Implants',
+        des: 'Restore missing teeth with natural-looking results.',
+    },
+    {
+        id: 2,
+        title: 'Dental Implants',
+        des: 'Restore missing teeth with natural-looking results.',
+    },
+    {
+        id: 3,
+        title: 'Dental Implants',
+        des: 'Restore missing teeth with natural-looking results.',
     },
     {
         id: 4,
-        title: 'Kimla',
-        src: '/assets/partner.jpg',
-    },
-    {
-        id: 5,
-        title: 'Kimla',
-        src: '/assets/partner.jpg',
-    },
-    {
-        id: 6,
-        title: 'Kimla',
-        src: '/assets/partner.jpg',
-    },
-    {
-        id: 7,
-        title: 'Kimla',
-        src: '/assets/partner.jpg',
-    },
-    {
-        id: 8,
-        title: 'Kimla',
-        src: '/assets/partner.jpg',
-    },
-    {
-        id: 9,
-        title: 'Kimla',
-        src: '/assets/partner.jpg',
-    },
-    {
-        id: 10,
-        title: 'Kimla',
-        src: '/assets/partner.jpg',
-    },
-    {
-        id: 11,
-        title: 'Kimla',
-        src: '/assets/partner.jpg',
-    },
-    {
-        id: 12,
-        title: 'Kimla',
-        src: '/assets/partner.jpg',
-    },
+        title: 'Dental Implants',
+        des: 'Restore missing teeth with natural-looking results.',
+    }
 ]
-
+export const Dentalservice = [
+    {
+        id:1,
+      title: "زراعة الأسنان: استعادة الأسنان المفقودة بنتائج تبدو طبيعية",
+      src: '/assets/pexels-photo.webp', 
+      description: " The body content of your post goes here The body content of your post goes here The body content of your post goes here.",
+    },
+    {
+        id:2,
+      title: "طب الأسنان التجميلي: تبييض وتحسين ابتسامتك للحصول على مظهر جديد مذهل",
+      src: "/assets/pexels-photo.webp", 
+      description: " The body content of your post goes here The body content of your post goes here The body content of your post goes here.",
+    },
+    {
+        id:3,
+      title: "تقويم الأسنان: تصحيح أسنانك وتحسين صحتك الفموية العامة",
+      src: "/assets/pexels-photo.webp", 
+      description: " The body content of your post goes here The body content of your post goes here The body content of your post goes here.",
+    },
+  ];
 export const navbar = [
     {
         id: 1,
