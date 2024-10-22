@@ -3,11 +3,12 @@ export const iconsNavbar = [
 		name: "FaceBook",
 		icon: (
 			// face
-			<div className="px-4">
+			<div className="px-3 ">
 				<svg
 					fill="rgba(42, 91, 160, 1)"
 					xmlns="http://www.w3.org/2000/svg"
-					width={12}
+					width={20}
+                    height={20}
 					className=""
 					viewBox="0 0 320 512"
 				>
@@ -25,6 +26,7 @@ export const iconsNavbar = [
 					fill="rgba(42, 91, 160, 1)"
 					xmlns="http://www.w3.org/2000/svg"
 					width={20}
+                    height={20}
 					className=""
 					viewBox="0 0 448 512"
 				>
@@ -93,11 +95,12 @@ export const iconsNavbar = [
 	{
 		// phone
 		icon: (
-			<div className="px-[13px] py-3 ">
+			<div className="p-4 ">
 				<svg
 					fill="rgba(42, 91, 160, 1)"
 					xmlns="http://www.w3.org/2000/svg"
-					width={18}
+					width={16}
+                    height={16}
 					className=""
 					viewBox="0 0 512 512"
 				>
@@ -110,7 +113,7 @@ export const iconsNavbar = [
 		// whatsup
 
 		icon: (
-			<div className="px-2 py-1 ">
+			<div className="px-3 py-1 ">
 				<svg
 					fill="rgba(42, 91, 160, 1)"
 					xmlns="http://www.w3.org/2000/svg"
