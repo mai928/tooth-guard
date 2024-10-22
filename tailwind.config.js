@@ -15,6 +15,15 @@ module.exports = {
         color_3: "var(--color_3)",
         color_4: "var(--color_4)",
       },
+      container: {
+        padding: {
+          DEFAULT: '1rem',
+          sm: '2rem',
+          lg: '4rem',
+          xl: '5rem',
+          '2xl': '6rem',
+        },
+      },
     },
   },
   plugins: [],
