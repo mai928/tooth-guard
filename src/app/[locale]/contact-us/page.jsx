@@ -23,7 +23,7 @@ const Contact = () => {
                         <h3 className='text-4xl'>Reach Out to Tooth Guard Clinics</h3>
                         <div className='border-blue-400 my-3 w-[20%] lg:w-[13%] border-t-8 rounded-lg ' />
 
-                        <p className='text-[16px] text-slate-600 w-[80%] py-4'>We're here to assist you with all your dental needs. Whether you're scheduling an appointment or have a question, our team is ready to help.</p>
+                        <p className='text-[16px] text-slate-600 w-[80%] py-4'>We are here to assist you with all your dental needs. Whether you are scheduling an appointment or have a question, our team is ready to help.</p>
                     </div>
                     <div>
                         <div className='text-white flex py-3 gap-5 items-start'>

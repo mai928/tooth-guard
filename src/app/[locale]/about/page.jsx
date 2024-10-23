@@ -15,7 +15,7 @@ const About = () => {
       <div className="sm:p-10 mt-5 flex flex-col items-center justify-center h-64 text-center">
         <h2 className="sm:text-5xl  text-xl text-blue-700 font-bold mb-2">About TOOTH GUARD</h2>
         <p className="sm:text-2xl text-xl text-green-500 font-bold mb-2">Your Partners in Dental Health</p>
-        <p className="w-3/4 text-gray-500">At Tooth Guard Clinics, we believe in a personalized approach to dental care. Our team consists of renowned professionals who are leaders in their field, including teaching staff from Egypt's most prestigious universities. We are committed to staying at the forefront of dental innovation to ensure you receive the best care possible.</p>
+        <p className="w-3/4 text-gray-500">At Tooth Guard Clinics, we believe in a personalized approach to dental care. Our team consists of renowned professionals who are leaders in their field, including teaching staff from Egypt most prestigious universities. We are committed to staying at the forefront of dental innovation to ensure you receive the best care possible.</p>
       </div>
       <div className="sm:p-10 flex flex-col items-center justify-center h-64 text-center">
         <h2 className="sm:text-5xl  text-xl text-blue-700 font-bold mb-2">Our Team</h2>
