@@ -4,9 +4,13 @@ import FirstNav from './FirstNav'
 import SecondNav from './SecondNav'
 import Link from 'next/link'
 import { navbarLink } from '../../data'
+import { useTranslation } from 'react-i18next'
+import LanguageChanger from './LanguageChanger'
 // import { fetchData } from '../../utils/api'
 
 const NavBar = () => {
+
+  const {t}  =useTranslation()
   const [toggle, setToggle] = useState(false)
   const [showmenuIcon, setshowmenuIcon] = useState(false)
   const sidebarRef = useRef(null);
@@ -98,12 +102,12 @@ const NavBar = () => {
     <section className=''>
       <div>{
         showmenuIcon === true ? (
-          <div className={`w-full pe-8 z-50 ${isFixed ? 'fixed top-0  bg-gray-200' : 'absolute top-0  bg-gray-200'}`}>
+          <div className={`w-full pe-8 z-50 ${isFixed ? 'fixed top-0  bg-gray-200' : ' top-0  bg-gray-200'}`}>
             <div className=' flex justify-between items-center'>
               <div>
                 <img alt='logo' className='w-36' src={'/assets/logo1.webp'} />
               </div>
-              <div onClick={() => setToggle(!toggle)}> <svg xmlns="http://www.w3.org/2000/svg" width={20} className='fill-white ' viewBox="0 0 448 512"><path d="M0 96C0 78.3 14.3 64 32 64l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 128C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 288c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32L32 448c-17.7 0-32-14.3-32-32s14.3-32 32-32l384 0c17.7 0 32 14.3 32 32z" /></svg></div>
+              <div onClick={() => setToggle(!toggle)}> <svg xmlns="http://www.w3.org/2000/svg" width={20} className='fill-color_1 ' viewBox="0 0 448 512"><path d="M0 96C0 78.3 14.3 64 32 64l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 128C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 288c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32L32 448c-17.7 0-32-14.3-32-32s14.3-32 32-32l384 0c17.7 0 32 14.3 32 32z" /></svg></div>
             </div>
           </div>
         ) : (
@@ -132,7 +136,7 @@ const NavBar = () => {
                         xmlns="http://www.w3.org/2000/svg"
                         width={13}
                         height={13}
-                        className="fill-primary_Color_Light  "
+                        className="fill-color_1"
                         viewBox="0 0 320 512"
                       >
                         <path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z" />
@@ -142,11 +146,11 @@ const NavBar = () => {
 
                       <Link
 
-                        className="text-white text-xl font-semibold   hover:text-primary-500"
+                        className="text-color_1 text-xl font-semibold   hover:text-primary-500"
                         href={item.path}
                         onClick={() => setToggle(false)}
                       >
-                        {(item.name)}
+                        {t(item.name)}
                       </Link>
                     </li>
 
@@ -155,21 +159,22 @@ const NavBar = () => {
                 ))}
               </ul>
 
-              <div className="flex items-center mt-7">
+              <div className="flex items-center mt-2">
                 <div className="p-1 bg-white-400 rounded-full me-4">
                   <svg
 
                     xmlns="http://www.w3.org/2000/svg"
                     width={13}
                     height={13}
-                    className="fill-secondary_color  "
+                    className="fill-color_1  "
                     viewBox="0 0 320 512"
                   >
                     <path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z" />
                   </svg>
 
 
-                </div>
+                </div>                  <LanguageChanger/>
+
 
 
               </div>

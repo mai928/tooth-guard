@@ -3,14 +3,15 @@ import { iconsNavbar, navbarLink } from '../../data';
 import Link from 'next/link';
 import React from 'react';
 import Social from './Social';
+import initTranslations from '@/app/i18n';
 // import { fetchApi, fetchData } from '../../utils/api';
 // import initTranslations from '@/app/i18n';
 
-const Footer = async () => {
-    // const i18nNamespaces = ["home"];
+    const Footer = async ({params}) => {
+    const i18nNamespaces = ["home"];
 
-    // const { locale } = params
-    // const { t } = await initTranslations(locale, i18nNamespaces)
+    const { locale } = params
+    const { t } = await initTranslations(locale, i18nNamespaces)
     // const response = await fetchData(`api/settings`, locale)
     // const setting = response?.data
 
@@ -40,7 +41,7 @@ const Footer = async () => {
                     <div className='mb-10'>{
                         navbarLink.map((item, index) => (
                             <div className='my-4' key={index}>
-                                <Link className='text-color_1  hover:font-semibold text-sm' href={item.path}>{(item.name)}</Link>
+                                <Link className='text-color_1  hover:font-semibold text-sm' href={item.path}>{t(item.name)}</Link>
                             </div>
                         ))
                     }
@@ -49,7 +50,7 @@ const Footer = async () => {
 
                 <div className='lg:w-[20%] text-center'>
                     <h3 className='text-color_2  text-xl font-semibold pb-14 uppercase'>Follow Links</h3>
-                    <div className=''>
+                    <div className='flex  justify-center items-center mb-10 lg:mb-0'>
                         <Social />
 
                     </div>
@@ -118,14 +119,14 @@ const Footer = async () => {
 
                 <div className='lg:w-[20%]'>
                     <div className=''>
-                        <img alt='logo' className='w-52 m-auto lg:m-0' src={'/assets/ToothGuard+logo+long.png'} />
+                        <img alt='logo' className='w-48 lg:w-52 m-auto lg:m-0' src={'/assets/ToothGuard+logo+long.png'} />
                     </div>
                 </div>
 
             </div>
             <div>
                 <div className='border-t-[1px] border-color_1 opacity-40 w-full' />
-                <p className='flex justify-center items-center mt-5 text-sm text-color_1'>© 2024  All Rights Reserved | Tooth Guard Clinics by CANGROW ONLINE</p>
+                <p className='flex justify-center items-center mt-5 text-[9px] lg:text-sm text-color_1'>© 2024  All Rights Reserved | Tooth Guard Clinics by CANGROW ONLINE</p>
 
             </div>
 

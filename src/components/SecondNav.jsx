@@ -3,11 +3,13 @@ import Link from 'next/link'
 import React, { useEffect, useState } from 'react'
 import { iconsNavbar, navbarLink } from '../../data';
 import Social from './Social';
+import LanguageChanger from './LanguageChanger';
+import { useTranslation } from 'react-i18next';
 // import { useTranslation } from 'react-i18next'
 // import { fetchData } from '../../utils/api'
 
 const SecondNav = ({ showmenuIcon }) => {
-    //  const {t ,i18n}= useTranslation()
+    const {t ,i18n}= useTranslation()
   const [isFixed, setIsFixed] = useState(false);
 
   const handleFixed = () => {
@@ -54,7 +56,7 @@ const SecondNav = ({ showmenuIcon }) => {
     <>
       {
         showmenuIcon === false && (<section
-          className={`w-full z-50  bg-gray-200  ${isFixed ? 'fixed top-0 py-1' : ''
+          className={`w-full z-50  py-1 bg-gray-200  ${isFixed ? 'fixed top-0' : ''
             }`}>
           <div className='flex  items-center w-full justify-between px-28 '>
             <div>
@@ -65,7 +67,7 @@ const SecondNav = ({ showmenuIcon }) => {
               {
                 navbarLink.map((link, index) => (
                   <div className='' key={index}>
-                    <Link href={link.path} className='text-color_1 mx-2 text-[16px]  hover:font-semibold'>{(link.name)}</Link>
+                    <Link href={link.path} className='text-color_1 mx-2 text-[16px]  hover:font-semibold'>{t(link.name)}</Link>
                   </div>
                 ))
               }
@@ -73,6 +75,7 @@ const SecondNav = ({ showmenuIcon }) => {
             </div>
 
            <Social/>
+           <LanguageChanger/>
           </div>
 
         </section>)

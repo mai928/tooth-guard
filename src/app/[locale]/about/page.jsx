@@ -1,3 +1,4 @@
+import AfterBefore from '@/components/After&Before'
 import Pannar from '@/components/Pannar'
 import React from 'react'
 const About = () => {
@@ -60,6 +61,16 @@ const About = () => {
         </div>
       </div>
     </div>
+
+    <div className='py-20 bg-color_4 px-5 lg:px-28'>
+                <div className='text-center'>
+                    <h3 className=' text-xl lg:text-4xl font-bold text-color_1'>Transformations That Speak Volumes</h3>
+                    <p className='text-color_1 lg:py-6 lg:w-[70%] m-auto'>
+                        See the incredible results achieved by our skilled team at Tooth Guard Clinics. Our before-and-after gallery showcases the transformative power of our dental treatments, from cosmetic enhancements to restorative solutions.</p>
+                </div>
+                <AfterBefore/>
+
+            </div>
     <Pannar />
         </div>
     )
