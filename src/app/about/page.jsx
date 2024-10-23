@@ -3,7 +3,7 @@ import React from 'react'
 const About = () => {
     return(
         <div>
-             <div className="bg-gradient-to-r p-1 sm:mt-0 mt-10 from-blue-500 to-green-400 text-white h-[250px] flex flex-col items-center justify-center">
+             <div className="bg-gradient-to-r p-1 sm:mt-0 from-blue-500 to-green-400 text-white h-[250px] flex flex-col items-center justify-center">
         <div className="text-center">
           <h1 className="sm:text-5xl text-xl  font-bold mb-4">About Us</h1>
           <p className="text-lg mb-8">
@@ -16,7 +16,7 @@ const About = () => {
                 <p className='sm:text-2xl text-xl text-green-500 font-bold mb-2'>Your Partners in Dental Health</p>
                 <p className='w-3/4 text-gray-500'>At Tooth Guard Clinics, we believe in a personalized approach to dental care. Our team consists of renowned professionals who are leaders in their field, including teaching staff from Egypt's most prestigious universities. We are committed to staying at the forefront of dental innovation to ensure you receive the best care possible.</p>
             </div>
-            <div className='sm:p-10 flex flex-col items-center justify-center h-64 text-center'>
+            <div className='sm:p-10 mt-5 flex flex-col items-center justify-center h-64 text-center'>
                 <h2 className="sm:text-5xl  text-xl text-blue-700 font-bold mb-2">Our Team</h2>
                 <p className='sm:text-2xl text-xl text-green-500 font-bold mb-2'>Passionate Experts Committed to Your Smile</p>
                 <p className='w-3/4 text-gray-500'>Our team at Tooth Guard Clinics is composed of highly skilled and compassionate professionals dedicated to providing outstanding dental care. Each team member brings unique expertise and a commitment to excellence.</p>

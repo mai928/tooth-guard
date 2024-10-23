@@ -18,16 +18,16 @@ const Header = () => {
               <p className="text-lg md:text-xl mb-8">
                 {res.des}
               </p>
-              <div className="flex space-x-4">
+              <div className="flex space-x-4 w-full">
                 <a
                   href="#about"
-                  className="bg-green-600 hover:bg-green-700 text-white font-bold sm:py-2 sm:px-24 py-2 px-3 rounded-full transition duration-300 "
+                  className="bg-green-600 hover:bg-green-700 text-sm  sm:text-lg text-white font-semibold sm:py-2 sm:px-24 py-2 px-2 rounded-full transition duration-300 "
                 >
                   About Us
                 </a>
                 <a
                   href="#appointment"
-                  className="bg-transparent border-2 border-white hover:bg-white hover:text-blue-500 text-white font-bold sm:py-2 sm:px-6 py-2 px-3 rounded-full transition duration-300"
+                  className="bg-transparent border-2 text-sm sm:text-lg border-white hover:bg-white hover:text-blue-500 text-white font-semibold sm:py-2 sm:px-6 py-2 px-3 rounded-full transition duration-300"
                 >
                   Book Your Appointment
                 </a>
