@@ -1,10 +1,21 @@
-import React from "react";
-import { Headers } from "../../data";
-const Header = () => {
+'use client'
+import React, { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
+import { fetchData } from '../../utils/api';
+const Header = () => {  
+ const [data , setData]=useState('')
+ const {t ,i18n} = useTranslation()
+  useEffect(()=>{
+    const AboutFetch= async ()=>{
+      const aboutData = await fetchData(`api/about-us`,i18n.language)
+         setData(aboutData.data)
+         console.log(data)
+    }
+    AboutFetch()
+},[])
   return (
     <div>
-      {Headers?.map((res, index) => ( 
-        <div key={index} className="bg-gradient-to-r from-blue-500 to-teal-500 text-white">
+        <div className="bg-gradient-to-r from-blue-500 to-teal-500 text-white">
           <div className="mx-auto flex flex-col md:flex-row items-center justify-between py-16 px-10 md:px-16">
             <div className="md:w-1/2">
             <img
@@ -13,10 +24,10 @@ const Header = () => {
                 className=" w-80 mb-10"
               />
               <h1 className="text-4xl md:text-5xl font-bold mb-8">
-                {res.title}
+                {data.title}
               </h1>
               <p className="text-lg md:text-xl mb-8">
-                {res.des}
+                {data.details}
               </p>
               <div className="flex space-x-4">
                 <a
@@ -33,18 +44,15 @@ const Header = () => {
                 </a>
               </div>
             </div>
-
-            {/* Right Side - Image */}
             <div className="mt-8 md:mt-0 md:w-1/2 flex justify-center">
               <img
-                src={res.src}
+                 src={`${data.photo}`}
                 alt="Tooth Guard Clinic"
                 className="rounded-lg shadow-lg"
               />
             </div>
           </div>
         </div>
-      ))};
     </div>
   );
 };

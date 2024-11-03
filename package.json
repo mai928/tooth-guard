@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "i18n": "^0.15.1",
     "i18next": "^23.16.2",
     "i18next-resources-to-backend": "^1.2.1",
     "isomorphic-dompurify": "^2.16.0",
