@@ -3,11 +3,11 @@ import React, { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { fetchData } from '../../utils/api';
 const Header = () => {  
- const [data , setData]=useState('')
+ const [data , setData]=useState([])
  const {t ,i18n} = useTranslation()
   useEffect(()=>{
     const AboutFetch= async ()=>{
-      const aboutData = await fetchData(`api/about-us`,i18n.language)
+      const aboutData = await fetchData(`api/sliders`,i18n.language)
          setData(aboutData.data)
          console.log(data)
     }
@@ -16,7 +16,10 @@ const Header = () => {
   return (
     <div>
         <div className="bg-gradient-to-r from-blue-500 to-teal-500 text-white">
-          <div className="mx-auto flex flex-col md:flex-row items-center justify-between py-16 px-10 md:px-16">
+          {
+            data.map((data , index)=> {
+              return (
+                <div key={index} className="mx-auto flex flex-col md:flex-row items-center justify-between py-16 px-10 md:px-16">
             <div className="md:w-1/2">
             <img
                 src="/assets/Tooth_Guard_Logo_wide_black-removebg-preview.png"
@@ -52,6 +55,9 @@ const Header = () => {
               />
             </div>
           </div>
+              )
+            })
+          }
         </div>
     </div>
   );

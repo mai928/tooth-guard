@@ -1,8 +1,8 @@
-export const fetchData = async (variable, lang) => {
+export const fetchData = async(variable, lang) => {
 	try {
 const myHeaders = new Headers();
 myHeaders.append("Accept-Language", lang);
-myHeaders.append("Cookie", "laravel_session=75NK60hDKqymWiHXeMAGbdWNvzaZcX5oXHJ5uG9H");
+myHeaders.append("Cookie", "laravel_session=JE11S2LwBFNyjpjHmaPYz1MrmSPuPTPZq9fzrM7c");
 
 const requestOptions = {
   method: "GET",
@@ -13,7 +13,7 @@ const requestOptions = {
 }
 };
 
-const response = await fetch(`/api.tooth-guard.com/${variable}`, requestOptions)
+const response = await fetch(`http://api.tooth-guard.com/${variable}`, requestOptions)
 const responsedata = await  response.json();
 return  responsedata;
 } catch (error) {
@@ -27,7 +27,7 @@ export const fetchPostData = async (variable, lang) => {
 	try {
 const myHeaders = new Headers();
 myHeaders.append("Accept-Language", lang);
-myHeaders.append("Cookie", "laravel_session=75NK60hDKqymWiHXeMAGbdWNvzaZcX5oXHJ5uG9H");
+myHeaders.append("Cookie", "laravel_session=JE11S2LwBFNyjpjHmaPYz1MrmSPuPTPZq9fzrM7c");
 
 const requestOptions = {
   method: "POST",
@@ -38,7 +38,7 @@ const requestOptions = {
 }
 };
 
-const response = await fetch(`/api.tooth-guard.com/${variable}`, requestOptions)
+const response = await fetch(`http://api.tooth-guard.com/${variable}`, requestOptions)
 const responsedata = await  response.json();
 return  responsedata;
 } catch (error) {

@@ -5,7 +5,6 @@ import Pannar from '@/components/Pannar';
 import { fetchData } from '../../../utils/api';
 import Link from 'next/link';
 const Contact = async({params}) => {
-    const i18nNamespaces = ["home"];
     const { locale } = params
     const { t } = await initTranslations(locale, i18nNamespaces)
     const settingData = await fetchData(`api/settings`, locale)

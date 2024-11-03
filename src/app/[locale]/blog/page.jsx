@@ -1,7 +1,16 @@
 import React from "react";
 import Pannar from "@/components/Pannar";
 import OurSerives from "@/components/OurSerives";
-const blog = () => {
+import initTranslations from "@/app/i18n";
+import { fetchData } from "../../../../utils/api";
+const blog =async ({params}) => {
+  const i18nNamespaces = ["home"];
+
+  const { locale } = params
+  console.log(locale)
+  const { t } =  await initTranslations(locale, i18nNamespaces)
+  const Dentalservice = await fetchData(`api/blogs`, locale)
+  const service = Dentalservice?.data;
     return (
         <div>
             <div className="bg-gradient-to-r p-1 sm:mt-0 mt-10 from-blue-500 to-green-400 text-white h-[250px] flex flex-col items-center justify-center">
@@ -13,7 +22,7 @@ const blog = () => {
         </p>
       </div>
     </div>
-        <OurSerives />
+        <OurSerives service={service}/>
         <Pannar />
         </div>
     );
