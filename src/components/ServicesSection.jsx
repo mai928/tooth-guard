@@ -1,6 +1,12 @@
 import React from "react";
-import { ServicesSections } from "../../data";
-const ServicesSection = () => {
+import { fetchData } from "../../utils/api";
+import initTranslations from "@/app/i18n";
+const ServicesSection = async({params}) => {
+  const i18nNamespaces = ["home"];
+  const { locale } = params
+  const { t } =  await initTranslations(locale, i18nNamespaces)
+  const service = await fetchData(`api/about-us-models`, locale)
+  const services = service?.data;
   return (
     <div className="sm:py-16">
       <div className="sm:px-32 px-10 mx-auto text-center">
@@ -12,12 +18,12 @@ const ServicesSection = () => {
         {/* Cards */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {
-            ServicesSections?.map((items,index) => (
+            services?.map((items,index) => (
                 <div key={index} className="bg-white  p-6 rounded-lg shadow-lg">
             <div className="flex justify-center mb-4">
               {/* Image/Icon */}
               <img
-                src="/assets/ToothGuard+logo+long.png"
+                src={`${items.photo}`}
                 alt="Experts You Can Trust"
                 className="w-20 h-20"
               />
@@ -26,7 +32,7 @@ const ServicesSection = () => {
               {items.title}
             </h3>
             <p className="text-gray-600">
-              {items.des}
+              {items.details}
             </p>
           </div>
             ))}

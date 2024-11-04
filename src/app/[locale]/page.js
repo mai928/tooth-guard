@@ -8,7 +8,7 @@ export default function Home({params ,locale}) {
   return ( 
     <div>
       <Header />
-      <ServicesSection />
+      <ServicesSection params={params} />
       <Services />
       <OurSerives/>
       <Pannar />
