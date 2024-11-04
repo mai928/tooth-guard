@@ -1,7 +1,14 @@
 import AfterBefore from "@/components/After&Before"
 import Pannar from "@/components/Pannar"
 import React from "react"
-const About = () => {
+import { fetchData } from "../../../../utils/api"
+import initTranslations from "@/app/i18n"
+const About = async({params}) => {
+  const i18nNamespaces = ["home"];
+  const { locale } = params
+  const { t } =  await initTranslations(locale,i18nNamespaces)
+  const infodoctor = await fetchData(`api/about-us`, locale)
+  const info = infodoctor?.data;
   return (
     <div>
       <div className="bg-gradient-to-r p-1 sm:mt-0  from-blue-500 to-green-400 text-white h-[250px] flex flex-col items-center justify-center">
@@ -27,7 +34,7 @@ const About = () => {
           <div className="bg-white rounded-lg flex flex-col md:flex-row">
             <div className="md:w-1/2">
               <img
-                src="/assets/asxsa.jpg"
+                src={`${info.photo}`}
                 alt="Dr. Mohamed Hegab"
                 className="object-cover w-full mb-10 h-full rounded-l-lg"
 
@@ -35,9 +42,9 @@ const About = () => {
             </div>
 
             <div className="md:w-1/2 p-6 flex flex-col justify-center">
-              <h2 className="text-3xl font-bold text-blue-700 mb-4">Dr. Mohamed Hegab</h2>
+              <h2 className="text-3xl font-bold text-blue-700 mb-4">{info.title}</h2>
               <p className="text-gray-600">
-                Dr. Mohamed Hegab, with 15 years of experience, is one of our leading dentists renowned for his meticulous care and innovative approach. Specializing in both routine and advanced dental procedures, Dr. Hegab is passionate about transforming smiles and enhancing patient confidence.
+              {info.details}
               </p>
             </div>
           </div>
