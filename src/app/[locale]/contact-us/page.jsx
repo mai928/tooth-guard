@@ -14,7 +14,7 @@ const Contact = async ({params}) => {
        <div>
          <div className="bg-gradient-to-r p-1 sm:mt-0 from-blue-500 to-green-400 text-white h-[250px] flex flex-col items-center justify-center">
         <div className="text-center">
-          <h1 className="sm:text-4xl text-xl  font-bold mb-4">Contact Us
+          <h1 className="sm:text-4xl text-xl  font-bold mb-4">{t("Contact Us")}
           </h1>
           <p className="text-lg mb-8">
             
@@ -26,10 +26,10 @@ const Contact = async ({params}) => {
                 <div className='lg:w-1/2'>
                     <div className='' >
 
-                        <h3 className='text-4xl'>Reach Out to Tooth Guard Clinics</h3>
+                        <h3 className='text-4xl'>{t("Reach Out to Tooth Guard Clinics")}</h3>
                         <div className='border-blue-400 my-3 w-[20%] lg:w-[13%] border-t-8 rounded-lg ' />
 
-                        <p className='text-[16px] text-slate-600 w-[80%] py-4'>We are here to assist you with all your dental needs. Whether you are scheduling an appointment or have a question, our team is ready to help.</p>
+                        <p className='text-[16px] text-slate-600 w-[80%] py-4'>{t("We are here to assist you with all your dental needs. Whether you are scheduling an appointment or have a question, our team is ready to help.")}</p>
                     </div>
                     <div>
                         <div className='text-white flex py-3 gap-5 items-start'>
@@ -86,7 +86,7 @@ const Contact = async ({params}) => {
                 </div>
             </div>
         </section>
-        <Pannar />
+        <Pannar params={params}/>
        </div>
     )
 }

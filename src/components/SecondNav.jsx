@@ -5,6 +5,7 @@ import { iconsNavbar, navbarLink } from '../../data';
 import Social from './Social';
 import LanguageChanger from './LanguageChanger';
 import { useTranslation } from 'react-i18next';
+import { fetchData, fetchPostData } from '../../utils/api';
 // import { useTranslation } from 'react-i18next'
 // import { fetchData } from '../../utils/api'
 
@@ -42,16 +43,25 @@ const SecondNav = ({ showmenuIcon }) => {
   }, [])
 
 
-  // const [settings, setData] = useState('')
-  // useEffect(() => {
-  //     const settingFetch = async () => {
-  //         const data = await fetchData(`api/settings`, i18n.language)
-  //         setData(data?.data)
+  const [settings, setData] = useState('')
+  const [social, setSocial] = useState('')
+  useEffect(() => {
+      const settingFetch = async () => {
+          const data = await fetchData(`api/settings`, i18n.language)
+          setData(data?.data)
 
-  //     }
+      }
 
-  //     settingFetch()
-  // }, [])
+      const SocialFetch = async () => {
+        const data = await fetchPostData(`api/social-media`, i18n.language)
+        setSocial(data?.data)
+
+    }
+
+    SocialFetch()
+
+      settingFetch()
+  }, [])
   return (
     <>
       {
@@ -60,7 +70,7 @@ const SecondNav = ({ showmenuIcon }) => {
             }`}>
           <div className='flex  items-center w-full justify-between px-28 '>
             <div>
-              <img alt='logo' className={`${isFixed ? 'w-52' : 'w-60'}`} src={'/assets/logo1.webp'} />
+              <img alt='logo' className={`${isFixed ? 'w-52' : 'w-60'}`} src={settings?.logo} />
             </div>
 
             <div className='flex justify-center items-center gap-5 '>
@@ -74,7 +84,7 @@ const SecondNav = ({ showmenuIcon }) => {
 
             </div>
 
-           <Social/>
+           <Social social={social} settings={settings}/>
            <LanguageChanger/>
           </div>
 

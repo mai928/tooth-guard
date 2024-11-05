@@ -1,20 +1,34 @@
+import initTranslations from '@/app/i18n'
 import Accordion from '@/components/Accordion'
 import AfterBefore from '@/components/After&Before'
 import Pannar from '@/components/Pannar'
 import React from 'react'
 
-const Services = () => {
+const Services = async ({ params }) => {
+    const i18nNamespaces = ["home"];
+    const { locale } = params
+    const { t } = await initTranslations(locale, i18nNamespaces)
     return (
         <section className=''>
             <div className='text-center pt-20'>
-                <h3 className=' text-xl lg:text-5xl font-semibold text-color_1'>
-                    TOOTH <span className='text-color_2'>GUARD</span> Services
+                {
+                    locale === 'ar' ? (<h3 className=' text-xl lg:text-5xl font-semibold text-color_1'>خدمات
+                        TOOTH <span className='text-color_2'>GUARD</span>
 
-                </h3>
+                    </h3>) : (<h3 className=' text-xl lg:text-5xl font-semibold text-color_1'>
+                        TOOTH <span className='text-color_2'>GUARD</span> Services
 
-                <h4 className='text-color_2 font-semibold text-2xl my-4'>Your Partners in Dental Health</h4>
-                <p className='text-color_1 font-extralight py-4'>At <span className='font-semibold'>Tooth</span>  <span className='text-color_2 font-semibold'>Guard</span> <span className='font-semibold'>Clinics</span>, we offer a wide array of services to cater to all your dental needs:
-                </p>
+                    </h3>)
+                }
+
+
+                <h4 className='text-color_2 font-semibold text-2xl my-4'>{t("Your Partners in Dental Health")}</h4>
+                {
+                    locale === 'ar' ? (<p className='text-color_1 font-extralight py-4'> في عيادات <span className='font-semibold'>Tooth</span>  <span className='text-color_2 font-semibold'>Guard</span> ,  نقدم مجموعة واسعة من الخدمات لتلبية جميع احتياجات أسنانك:
+                    </p>): (<p className='text-color_1 font-extralight py-4'>At <span className='font-semibold'>Tooth</span>  <span className='text-color_2 font-semibold'>Guard</span> <span className='font-semibold'>Clinics</span>, we offer a wide array of services to cater to all your dental needs:
+                    </p>) 
+                }
+
             </div>
 
             <div className=' block lg:flex gap-5 '>
@@ -24,21 +38,21 @@ const Services = () => {
                 </div>
 
                 <div className=' w-full  lg:w-[50%] py-14'>
-                    <Accordion/>
+                    <Accordion />
                 </div>
             </div>
 
             <div className='py-20 bg-color_4 px-5 lg:px-28'>
                 <div className='text-center'>
-                    <h3 className=' text-xl lg:text-4xl font-bold text-color_1'>Transformations That Speak Volumes</h3>
+                    <h3 className=' text-xl lg:text-4xl font-bold text-color_1'>{t("Transformations That Speak Volumes")}</h3>
                     <p className='text-color_1 lg:py-6 lg:w-[70%] m-auto'>
-                    See the incredible results achieved by our skilled team at Tooth Guard Clinics. Our before-and-after gallery showcases the transformative power of our dental treatments, from cosmetic enhancements to restorative solutions.</p>
+                        {t("See the incredible results achieved by our skilled team at Tooth Guard Clinics. Our before-and-after gallery showcases the transformative power of our dental treatments, from cosmetic enhancements to restorative solutions.")}</p>
                 </div>
-                        <AfterBefore/>
-    
+                <AfterBefore />
+
             </div>
 
-            <Pannar/>
+            <Pannar params={params} />
 
         </section>
     )

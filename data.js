@@ -8,7 +8,7 @@ export const iconsNavbar = [
 					fill="rgba(42, 91, 160, 1)"
 					xmlns="http://www.w3.org/2000/svg"
 					width={20}
-                    height={20}
+					height={20}
 					className=""
 					viewBox="0 0 320 512"
 				>
@@ -26,7 +26,7 @@ export const iconsNavbar = [
 					fill="rgba(42, 91, 160, 1)"
 					xmlns="http://www.w3.org/2000/svg"
 					width={20}
-                    height={20}
+					height={20}
 					className=""
 					viewBox="0 0 448 512"
 				>
@@ -94,13 +94,14 @@ export const iconsNavbar = [
 	// },
 	{
 		// phone
+		name: "Phone",
 		icon: (
 			<div className="p-4 ">
 				<svg
 					fill="rgba(42, 91, 160, 1)"
 					xmlns="http://www.w3.org/2000/svg"
 					width={16}
-                    height={16}
+					height={16}
 					className=""
 					viewBox="0 0 512 512"
 				>
@@ -111,6 +112,8 @@ export const iconsNavbar = [
 	},
 	{
 		// whatsup
+
+		name: "whatsapp",
 
 		icon: (
 			<div className="px-3 py-1 ">
@@ -150,24 +153,28 @@ export const navbarLink = [
 	},
 ];
 
-export const accordion =[
-    {
-        title:'Routine Dental Checkups',
-        desc:'Achieve the smile of your dreams with teeth whitening, veneers, and more.'
-    }, {
-        title:'Routine Dental Checkups',
-        desc:'Achieve the smile of your dreams with teeth whitening, veneers, and more.'
-    }, {
-        title:'Routine Dental Checkups',
-        desc:'Achieve the smile of your dreams with teeth whitening, veneers, and more.'
-    }, {
-        title:'Routine Dental Checkups',
-        desc:'Achieve the smile of your dreams with teeth whitening, veneers, and more.'
-    }, {
-        title:'Routine Dental Checkups',
-        desc:'Achieve the smile of your dreams with teeth whitening, veneers, and more.'
-    },
-]
+export const accordion = [
+	{
+		title: "Routine Dental Checkups",
+		desc: "Achieve the smile of your dreams with teeth whitening, veneers, and more.",
+	},
+	{
+		title: "Routine Dental Checkups",
+		desc: "Achieve the smile of your dreams with teeth whitening, veneers, and more.",
+	},
+	{
+		title: "Routine Dental Checkups",
+		desc: "Achieve the smile of your dreams with teeth whitening, veneers, and more.",
+	},
+	{
+		title: "Routine Dental Checkups",
+		desc: "Achieve the smile of your dreams with teeth whitening, veneers, and more.",
+	},
+	{
+		title: "Routine Dental Checkups",
+		desc: "Achieve the smile of your dreams with teeth whitening, veneers, and more.",
+	},
+];
 export const Headers = [
 	{
 		id: 1,

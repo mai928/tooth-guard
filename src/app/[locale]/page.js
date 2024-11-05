@@ -4,14 +4,14 @@ import OurSerives from "@/components/OurSerives";
 import Pannar from "@/components/Pannar";
 import Services from "@/components/Service";
 import ServicesSection from "@/components/ServicesSection";
-export default function Home({params ,locale}) {
+export default function Home({params}) {
   return ( 
     <div>
       <Header />
       <ServicesSection params={params} />
-      <Services />
-      <OurSerives/>
-      <Pannar />
+      <Services params={params} />
+      <OurSerives params={params}/>
+      <Pannar params={params}/>
     </div>
   );
 }
