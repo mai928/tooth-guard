@@ -6,6 +6,7 @@ import initTranslations from "../i18n";
 import TranslationsProvider from "@/components/TranslationsProvider";
 import { dir } from "i18next";
 import { getMetadata } from "@/components/getMetadata";
+import Head from "next/head";
 
 const geistSans = localFont({
 	src: "./fonts/GeistVF.woff",
@@ -27,11 +28,13 @@ export async function generateMetadata() {
 				"At Tooth Guard Clinics, we provide top-tier dental care that transforms lives one smile at a time. Our experienced team is here to deliver exceptional service, whether you re here for a routine checkup or advanced cosmetic dentistry.",
 
 			icons: {
-        icon:[
-			{	url: data.logo || "/favicon.ico",
-				href: data.logo || "/favicon.ico",
-				media: data.logo || "/favicon.ico",}]
-        
+				icon: [
+					{
+						url: data.logo || "/favicon.ico",
+						href: data.logo || "/favicon.ico",
+						media: data.logo || "/favicon.ico",
+					},
+				],
 			},
 			openGraph: {
 				title: "TOOTH GUARD",
@@ -95,6 +98,12 @@ export default async function RootLayout({ children, params }) {
 
 	return (
 		<html lang={locale} dir={dir(locale)}>
+			<Head>
+				<meta
+					name="google-site-verification"
+					content="XmE4cT8eN-RTm7fLfT_e-ap_toosMuXQwzYRDNRZqaM"
+				/>
+			</Head>
 			<body
 				className={`${geistSans.variable} ${geistMono.variable} antialiased`}
 			>
