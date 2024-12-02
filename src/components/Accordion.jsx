@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react'
 import DOMPurify from "isomorphic-dompurify";
 import { fetchData } from '../../utils/api';
 import { useTranslation } from 'react-i18next';
+import Link from 'next/link';
 
 
 
@@ -73,7 +74,13 @@ const Accordion = () => {
 
                         <div> {
                             isOpen && index === ID && <div className='transition-transform transform rotate-0'>
-                                <div className='text-sm text-center lg:text-start lg:text-lg text-color_1 lg:py-4 m-auto overflow-hidden transition-all duration-[3500ms] scale-100 transform  ease-in-out   ' dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(t(item.details)) }} />
+                                <Link
+                                    href={`/services/${item.slug}`}
+                                    className="block cursor-pointer text-sm text-center lg:text-start lg:text-lg text-color_1 lg:py-4 m-auto overflow-hidden transition-all duration-[3500ms] scale-100 transform ease-in-out"
+                                >
+                                    <div dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(t(item.short_details)) }} />
+                                </Link>
+
                             </div>
                         }
                         </div>

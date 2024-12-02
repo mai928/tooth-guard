@@ -4,12 +4,33 @@ import React from "react"
 import { fetchData } from "../../../../utils/api"
 import initTranslations from "@/app/i18n"
 import DOMPurify from "isomorphic-dompurify"
+
+
+
+export async function generateMetadata({ params }) {
+  const { locale } = params
+
+  return {
+      title: locale === 'ar' ? 'معلومات عن | TOOTH GUARD' : locale === 'en' ? "Information about  | TOOTH GUARD" : '',
+      description: locale === 'ar' ? 'معلومات عن | TOOTH GUARD' : locale === 'en' ? "Information about  | TOOTH GUARD" : '',
+      other: {
+          title: locale === 'ar' ? 'معلومات عن | TOOTH GUARD' : locale === 'en' ? "Information about  | TOOTH GUARD" : '',
+      }
+
+  }
+}
+
+
+
 const About = async ({ params }) => {
   const i18nNamespaces = ["home"];
   const { locale } = params
   const { t } = await initTranslations(locale, i18nNamespaces)
   const infodoctor = await fetchData(`api/about-us`, locale)
   const info = infodoctor?.data;
+
+  const aboutsection = await fetchData(`api/about_us_page_section`, locale)
+  const aboutarr = aboutsection?.data;
 
 
   const team = await fetchData(`api/our_team`, locale)
@@ -65,22 +86,25 @@ const About = async ({ params }) => {
           </div>
         </div>
       </div>
+
+      {/* about */}
       <div className="bg-gradient-to-r from-blue-600 to-green-400 py-12">
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 text-white px-6">
-          <div className="flex flex-col items-center md:items-start text-center md:text-left border-0 sm:border-r-2 border-white">
-            <h3 className="text-2xl font-bold mb-2">Decades of Experience:</h3>
-            <p>With thousands of patients treated each year our expertise is unparalleled.</p>
-          </div>
+          {
+            aboutarr?.map((item )=>(
+              <div key={item.id} className="flex flex-col items-center md:items-start text-center md:text-left ">
+              <h3 className="text-2xl font-bold mb-2">{t(item?.title)}</h3>
+              <div  dangerouslySetInnerHTML={{
+                __html: DOMPurify.sanitize(t(item?.details), {
+                  ALLOWED_TAGS: ['b', 'i', 'em', 'strong', 'a', 'p', 'pre', 'br', 'ul', 'li', 'ol', 'span'],
+                  ALLOWED_ATTR: ['href', 'target', 'style']
+                })
+              }} />
+            </div>
+            ))
+          }
 
-          <div className="flex flex-col items-center md:items-start text-center md:text-left border-0 sm:border-r-2 border-white">
-            <h3 className="text-2xl font-bold mb-2">Innovative Techniques:</h3>
-            <p>We utilize the latest advancements in dental technology to provide cutting-edge treatments.</p>
-          </div>
-
-          <div className="flex flex-col items-center md:items-start text-center md:text-left ">
-            <h3 className="text-2xl font-bold mb-2">Holistic Care:</h3>
-            <p>We focus on your overall well-being, ensuring that your experience with us is comfortable and rewarding.</p>
-          </div>
+        
         </div>
       </div>
 

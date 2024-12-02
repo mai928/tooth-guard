@@ -1,5 +1,7 @@
 import React from 'react';
 import initTranslations from '@/app/i18n';
+import Link from 'next/link';
+import { fetchData, fetchPostData } from '../../utils/api';
 
 
 const Pannar =async ({params}) => {
@@ -7,6 +9,12 @@ const Pannar =async ({params}) => {
 
   const { locale } = params
   const { t } =  await initTranslations(locale, i18nNamespaces)
+
+  const response = await fetchData(`api/settings`, locale)
+  const setting = response?.data
+
+  const phone=   setting?.phones?.map((item)=>(item))
+
 
   return (
     <div className="bg-gradient-to-r p-1 sm:mt-0 mt-10 from-blue-500 to-green-400 text-white h-[350px] flex flex-col items-center justify-center">
@@ -16,13 +24,13 @@ const Pannar =async ({params}) => {
           {t("Our team is ready to assist with appointments, answer your questions, and guide you towards achieving your perfect smile.")}
         </p>
         <div className="flex space-x-4  justify-center">
-          <button className="bg-green-500 hover:bg-green-700 text-white  font-semibold lg:font-bold  text-sm lg:text-lg   sm:py-2 px-2 sm:px-6 rounded-full">
+          <Link href={'/contact-us'} className="bg-green-500 hover:bg-green-700 text-white  font-semibold lg:font-bold  text-sm lg:text-lg   sm:py-2 px-2 sm:px-6 rounded-full">
             {t("Contact Us")}
-          </button>
+          </Link>
           <span className="text-white-300   lg:mt-2 text-xl">{t("or")}</span>
-          <button className="text-white font-semibold   px-1  sm:py-2 sm:px-6   text-sm lg:text-[16px] rounded-full border-2 border-inherit">
+          <Link target='_blank' href={`https://wa.me/${phone}`} className="text-white font-semibold   px-1  sm:py-2 sm:px-6   text-sm lg:text-[16px] rounded-full border-2 border-inherit">
             {t("Book Your Appointment")}
-          </button>
+          </Link>
         </div>
       </div>
     </div>

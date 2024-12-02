@@ -4,6 +4,23 @@ import Form from '@/components/Form';
 import Pannar from '@/components/Pannar';
 import { fetchData } from '../../../../utils/api';
 import initTranslations from '@/app/i18n';
+
+
+export async function generateMetadata({ params }) {
+    const { locale } = params
+  
+    return {
+        title: locale === 'ar' ? 'وسائل تواصل مع  | TOOTH GUARD' : locale === 'en' ? "contact us   | TOOTH GUARD" :'',
+        description:  locale === 'ar' ? 'وسائل تواصل مع  | TOOTH GUARD' : locale === 'en' ? "contact us   | TOOTH GUARD" :'',
+        other: {
+            title: locale === 'ar' ? 'وسائل تواصل مع  | TOOTH GUARD' : locale === 'en' ? "contact us   | TOOTH GUARD" :'',
+        }
+  
+    }
+  }
+
+
+
 const Contact = async ({params}) => {
     const i18nNamespaces = ["home"];
     const { locale } = params

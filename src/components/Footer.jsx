@@ -4,7 +4,7 @@ import Link from 'next/link';
 import React from 'react';
 import Social from './Social';
 import initTranslations from '@/app/i18n';
-import { fetchData } from '../../utils/api';
+import { fetchData, fetchPostData } from '../../utils/api';
 
 
 const Footer = async ({ params }) => {
@@ -16,9 +16,8 @@ const Footer = async ({ params }) => {
     const setting = response?.data
 
 
-
-
-
+    const socialDData = await fetchPostData(`api/social-media`, locale)
+    const social = socialDData?.data
 
     return (
         <section className='  lg:px-40 lg:py-10 z-0'>
@@ -27,16 +26,16 @@ const Footer = async ({ params }) => {
                 <div className='lg:w-[30%] text-center'>
                     <h3 className='text-color_2  text-xl mb-5 font-semibold uppercase'>{t("Contact Us")}</h3>
                     {
-                        setting?.emails?.map((item) => (
-                            <p className='text-color_1 font-semibold my-4'>{item}</p>
+                        setting?.emails?.map((item ,index) => (
+                            <p key={index} className='text-color_1 font-semibold my-4'>{item}</p>
 
                         ))
                     }
 
                     {
 
-                        setting?.phones?.map((item) => (
-                            <p className='text-color_1 font-semibold my-4'>{item}</p>
+                        setting?.phones?.map((item ,index) => (
+                            <p key={index} className='text-color_1 font-semibold my-4'>{item}</p>
 
                         ))
 
@@ -44,8 +43,8 @@ const Footer = async ({ params }) => {
 
                     {
 
-                        setting?.addresses?.map((item) => (
-                            <p className='text-color_1 font-semibold my-4'>{item}</p>
+                        setting?.addresses?.map((item ,index) => (
+                            <p key={index} className='text-color_1 font-semibold my-4'>{item}</p>
 
                         ))
 
@@ -69,7 +68,7 @@ const Footer = async ({ params }) => {
                 <div className='lg:w-[20%] text-center'>
                     <h3 className='text-color_2  text-xl font-semibold pb-14 uppercase'>{t("Follow Links")}</h3>
                     <div className='flex  justify-center items-center mb-10 lg:mb-0'>
-                        <Social />
+                    <Social social={social} settings={setting}/>
 
                     </div>
                 </div>

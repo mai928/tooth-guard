@@ -1,3 +1,197 @@
+
+
+// 'use client'
+// import React, { useEffect, useRef, useState } from 'react'
+// import FirstNav from './FirstNav'
+// import SecondNav from './SecondNav'
+// import Link from 'next/link'
+// import { navbarLink } from '../../data'
+// import { useTranslation } from 'react-i18next'
+// import LanguageChanger from './LanguageChanger'
+// // import { fetchData } from '../../utils/api'
+
+// const NavBar = () => {
+
+//   const { t } = useTranslation()
+//   const [toggle, setToggle] = useState(false)
+//   const [showmenuIcon, setshowmenuIcon] = useState(false)
+//   const sidebarRef = useRef(null);
+
+
+//   const handleClickOutside = (event) => {
+//     // If the sidebar is open and the click is outside of it, close the sidebar
+//     if (toggle && sidebarRef.current && !sidebarRef.current.contains(event.target)) {
+//       setToggle(false);
+//     }
+//   };
+
+//   const [isFixed, setIsFixed] = useState(false);
+
+//   const handleFixed = () => {
+
+//     const handleScroll = () => {
+//       if (window.scrollY >= 100) {
+//         setIsFixed(true);
+//       } else {
+//         setIsFixed(false);
+//       }
+//     };
+
+//     window.addEventListener('scroll', handleScroll);
+//     return () => {
+//       window.removeEventListener('scroll', handleScroll);
+//     };
+//   }
+
+
+//   useEffect(() => {
+
+//     if (window.scrollY >= 10) {
+//       setIsFixed(true);
+//     } else {
+//       setIsFixed(false);
+//     }
+
+//     handleFixed()
+
+//   }, [])
+
+
+//   useEffect(() => {
+//     const handleSize = () => {
+//       if (window.innerWidth <= 1024) {
+//         setToggle(false)
+//         setshowmenuIcon(true)
+//       } else {
+//         setshowmenuIcon(false)
+
+//       }
+//     }
+
+//     handleSize()
+//     window.addEventListener('resize', handleSize)
+//     return () => {
+//       window.removeEventListener('resize', handleSize)
+//     }
+
+//   }, [])
+
+
+//   useEffect(() => {
+//     // Add the event listener for clicks
+//     document.addEventListener('mousedown', handleClickOutside);
+//     return () => {
+//       // Remove the event listener when the component is unmounted
+//       document.removeEventListener('mousedown', handleClickOutside);
+//     }
+//   }, [toggle])
+
+
+
+
+//   // const [settings, setData] = useState('')
+//   // useEffect(() => {
+//   //   const settingFetch = async () => {
+//   //     const data = await fetchData(`api/settings`, i18n.language)
+//   //     setData(data?.data)
+
+//   //   }
+
+//   //   settingFetch()
+//   // }, [])
+
+//   return (
+//     <section className=''>
+//       <div>{
+//         showmenuIcon === true ? (
+//           <div className={`w-full pe-8 z-50 ${isFixed ? 'fixed top-0  bg-gray-200' : ' top-0  bg-gray-200'}`}>
+//             <div className=' flex justify-between items-center'>
+//               <div>
+//                 <img alt='logo' className='w-36' src={'/assets/logo1.webp'} />
+//               </div>
+//               <div onClick={() => setToggle(true)}> <svg xmlns="http://www.w3.org/2000/svg" width={20} className='fill-color_1 ' viewBox="0 0 448 512"><path d="M0 96C0 78.3 14.3 64 32 64l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 128C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 288c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32L32 448c-17.7 0-32-14.3-32-32s14.3-32 32-32l384 0c17.7 0 32 14.3 32 32z" /></svg></div>
+//             </div>
+//           </div>
+//         ) : (
+//           <div>
+//             {/* <FirstNav showmenuIcon={showmenuIcon} /> */}
+//             <SecondNav showmenuIcon={showmenuIcon} />
+//           </div>
+//         )
+//       }
+//       </div>
+
+//       <div>
+//         <div ref={sidebarRef}>
+//           <div className={`sidebar ${toggle ? "open" : "close"} `}>
+//             <div className="p-10">
+//               <div className="flex justify-between items-center mb-10">
+//                 <Link href={'/'}><img alt="logo" width={100} height={'auto'} src={'/assets/logo1.webp'} /></Link>
+//               </div>
+
+//               <ul>
+//                 {navbarLink.map((item, index) => (
+//                   <div key={item.name} className="flex items-center mt-7">
+//                     <div className="p-1 bg-white-400 rounded-full me-4">
+//                       <svg
+
+//                         xmlns="http://www.w3.org/2000/svg"
+//                         width={13}
+//                         height={13}
+//                         className="fill-color_1"
+//                         viewBox="0 0 320 512"
+//                       >
+//                         <path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z" />
+//                       </svg>
+//                     </div>
+//                     <li className='relative'>
+
+//                       <Link
+
+//                         className="text-color_1 text-xl font-semibold   hover:text-primary-500"
+//                         href={item.path}
+//                         onClick={() => setToggle(false)}
+//                       >
+//                         {t(item.name)}
+//                       </Link>
+//                     </li>
+
+//                   </div>
+
+//                 ))}
+//               </ul>
+
+//               <div className="flex items-center mt-2">
+//                 <div className="p-1 bg-white-400 rounded-full me-4">
+//                   <svg
+
+//                     xmlns="http://www.w3.org/2000/svg"
+//                     width={13}
+//                     height={13}
+//                     className="fill-color_1  "
+//                     viewBox="0 0 320 512"
+//                   >
+//                     <path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z" />
+//                   </svg>
+
+
+//                 </div>                  <LanguageChanger />
+
+
+
+//               </div>
+
+//             </div>
+//           </div>
+//         </div>
+//       </div>
+
+//     </section>
+//   )
+// }
+
+// export default NavBar
+
 'use client'
 import React, { useEffect, useRef, useState } from 'react'
 import FirstNav from './FirstNav'
@@ -6,184 +200,115 @@ import Link from 'next/link'
 import { navbarLink } from '../../data'
 import { useTranslation } from 'react-i18next'
 import LanguageChanger from './LanguageChanger'
-// import { fetchData } from '../../utils/api'
 
 const NavBar = () => {
-
-  const {t}  =useTranslation()
+  const { t } = useTranslation()
   const [toggle, setToggle] = useState(false)
-  const [showmenuIcon, setshowmenuIcon] = useState(false)
-  const sidebarRef = useRef(null);
+  const [showmenuIcon, setshowmenuIcon] = useState(false) // Initial check for screen size
+  const sidebarRef = useRef(null)
+  const [isFixed, setIsFixed] = useState(false)
 
-
+  // Handle clicks outside the sidebar to close it
   const handleClickOutside = (event) => {
-    // If the sidebar is open and the click is outside of it, close the sidebar
     if (toggle && sidebarRef.current && !sidebarRef.current.contains(event.target)) {
-      setToggle(false);
+      setToggle(false)
     }
-  };
-
-  const [isFixed, setIsFixed] = useState(false);
-
-  const handleFixed = () => {
-
-    const handleScroll = () => {
-      if (window.scrollY >= 100) {
-        setIsFixed(true);
-      } else {
-        setIsFixed(false);
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
   }
 
-
-  useEffect(() => {
-
-    if (window.scrollY >= 10) {
-      setIsFixed(true);
-    } else {
-      setIsFixed(false);
+  // Handle the fixed navbar on scroll
+  const handleFixed = () => {
+    const handleScroll = () => {
+      setIsFixed(window.scrollY >= 100)
     }
+    window.addEventListener('scroll', handleScroll)
+    return () => {
+      window.removeEventListener('scroll', handleScroll)
+    }
+  }
 
-    handleFixed()
+  // Adjust menu icon visibility based on screen size
+ 
 
-  }, [])
+
   useEffect(() => {
-
     const handleSize = () => {
       if (window.innerWidth <= 1024) {
-        setToggle(false)
         setshowmenuIcon(true)
+  
       } else {
         setshowmenuIcon(false)
-
       }
     }
-
-
-    handleSize()
+    handleFixed()
+    handleSize() // Initial check
     window.addEventListener('resize', handleSize)
+    document.addEventListener('mousedown', handleClickOutside)
+
     return () => {
       window.removeEventListener('resize', handleSize)
+      document.removeEventListener('mousedown', handleClickOutside)
     }
-
-  }, [])
-
-
-  useEffect(() => {
-    // Add the event listener for clicks
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => {
-      // Remove the event listener when the component is unmounted
-      document.removeEventListener('mousedown', handleClickOutside);
-    }
-  }, [toggle])
-
-
-
-
-  // const [settings, setData] = useState('')
-  // useEffect(() => {
-  //   const settingFetch = async () => {
-  //     const data = await fetchData(`api/settings`, i18n.language)
-  //     setData(data?.data)
-
-  //   }
-
-  //   settingFetch()
-  // }, [])
+  }, [toggle ,showmenuIcon])
 
   return (
-    <section className=''>
-      <div>{
-        showmenuIcon === true ? (
-          <div className={`w-full pe-8 z-50 ${isFixed ? 'fixed top-0  bg-gray-200' : ' top-0  bg-gray-200'}`}>
-            <div className=' flex justify-between items-center'>
+    <section>
+      <div>
+        {showmenuIcon ? (
+          <div className={`w-full pe-8 z-50 ${isFixed ? 'fixed top-0 bg-gray-200' : 'top-0 bg-gray-200'}`}>
+            <div className='flex justify-between items-center'>
               <div>
                 <img alt='logo' className='w-36' src={'/assets/logo1.webp'} />
               </div>
-              <div onClick={() => setToggle(!toggle)}> <svg xmlns="http://www.w3.org/2000/svg" width={20} className='fill-color_1 ' viewBox="0 0 448 512"><path d="M0 96C0 78.3 14.3 64 32 64l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 128C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 288c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32L32 448c-17.7 0-32-14.3-32-32s14.3-32 32-32l384 0c17.7 0 32 14.3 32 32z" /></svg></div>
+              <div onClick={() => setToggle(!toggle)}>
+                <svg xmlns="http://www.w3.org/2000/svg" width={20} className='fill-color_1' viewBox="0 0 448 512">
+                  <path d="M0 96C0 78.3 14.3 64 32 64h384c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32h384c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32h384c17.7 0 32 14.3 32 32z" />
+                </svg>
+              </div>
             </div>
           </div>
         ) : (
           <div>
-            {/* <FirstNav showmenuIcon={showmenuIcon} /> */}
             <SecondNav showmenuIcon={showmenuIcon} />
           </div>
-        )
-      }
+        )}
       </div>
 
-      <div>
-        <div ref={sidebarRef}>
-          <div className={`sidebar ${toggle ? "open" : "close"} `}>
-            <div className="p-10">
-              <div className="flex justify-between items-center mb-10">
-                <Link href={'/'}><img alt="logo" width={100} height={'auto'} src={'/assets/logo1.webp'} /></Link>
-              </div>
-
-              <ul>
-                {navbarLink.map((item, index) => (
-                  <div key={item.name} className="flex items-center mt-7">
-                    <div className="p-1 bg-white-400 rounded-full me-4">
-                      <svg
-
-                        xmlns="http://www.w3.org/2000/svg"
-                        width={13}
-                        height={13}
-                        className="fill-color_1"
-                        viewBox="0 0 320 512"
-                      >
-                        <path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z" />
-                      </svg>
-                    </div>
-                    <li className='relative'>
-
-                      <Link
-
-                        className="text-color_1 text-xl font-semibold   hover:text-primary-500"
-                        href={item.path}
-                        onClick={() => setToggle(false)}
-                      >
-                        {t(item.name)}
-                      </Link>
-                    </li>
-
+      <div ref={sidebarRef}>
+        <div className={`sidebar ${toggle ? "open" : "close"} `}>
+          <div className="p-10">
+            <div className="flex justify-between items-center mb-10">
+              <Link href={'/'}>
+                <img alt="logo" width={100} height={'auto'} src={'/assets/logo1.webp'} />
+              </Link>
+            </div>
+            <ul>
+              {navbarLink.map((item, index) => (
+                <div key={item.name} className="flex items-center mt-7">
+                  <div className="p-1 bg-white-400 rounded-full me-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" width={13} height={13} className="fill-color_1" viewBox="0 0 320 512">
+                      <path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z" />
+                    </svg>
                   </div>
+                  <li className='relative'>
+                    <Link className="text-color_1 text-xl font-semibold hover:text-primary-500" href={item.path} onClick={() => setToggle(false)}>
+                      {t(item.name)}
+                    </Link>
+                  </li>
+                </div>
+              ))}
+            </ul>
 
-                ))}
-              </ul>
-
-              <div className="flex items-center mt-2">
-                <div className="p-1 bg-white-400 rounded-full me-4">
-                  <svg
-
-                    xmlns="http://www.w3.org/2000/svg"
-                    width={13}
-                    height={13}
-                    className="fill-color_1  "
-                    viewBox="0 0 320 512"
-                  >
-                    <path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z" />
-                  </svg>
-
-
-                </div>                  <LanguageChanger/>
-
-
-
+            <div className="flex items-center mt-2">
+              <div className="p-1 bg-white-400 rounded-full me-4">
+                <svg xmlns="http://www.w3.org/2000/svg" width={13} height={13} className="fill-color_1" viewBox="0 0 320 512">
+                  <path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z" />
+                </svg>
               </div>
-
+              <LanguageChanger />
             </div>
           </div>
         </div>
       </div>
-
     </section>
   )
 }

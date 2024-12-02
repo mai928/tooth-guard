@@ -3,6 +3,22 @@ import Pannar from "@/components/Pannar";
 import OurSerives from "@/components/OurSerives";
 import initTranslations from "@/app/i18n";
 import { fetchData } from "../../../../utils/api";
+
+
+export async function generateMetadata({ params }) {
+  const { locale } = params
+
+  return {
+      title: locale === 'ar' ? 'مقالات عن | TOOTH GUARD' : locale === 'en' ? "Blogs about  | TOOTH GUARD" : '',
+      description: locale === 'ar' ? 'مقالات عن | TOOTH GUARD' : locale === 'en' ? "Blogs about  | TOOTH GUARD" : '',
+      other: {
+          title: locale === 'ar' ? 'مقالات عن | TOOTH GUARD' : locale === 'en' ? "Blogs about  | TOOTH GUARD" : '',
+      }
+
+  }
+}
+
+
 const blog =async ({params}) => {
   const i18nNamespaces = ["home"];
 

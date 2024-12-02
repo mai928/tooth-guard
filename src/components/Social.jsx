@@ -12,12 +12,12 @@ const Social = ({ social ,settings }) => {
                 iconsNavbar?.map((icon, index) => (
                     <div className='bg-color_4  flex items-center  rounded-full' key={index}>
                         <Link target='_blank' href={
-                            icon.name === 'FaceBook' ? social?.facebook || '/' :
-                                icon.name === 'Instagram' ? '/' :
+                            icon.name === 'FaceBook' ? `${social.facebook }` :
+                                icon.name === 'Instagram' ? `${social.linkedin}` :
                                     icon.name === 'Twitter' ? social?.twitter || '/' :
-                                        icon.name === 'Google' ? '/' :
+                                        icon.name === 'whatsapp' ? `https://wa.me/${phone}` :
                                         icon.name === 'Phone'? `tel:${phone}`:
-                                            icon.name === 'LinkedIn' ? social?.linkedin || '/' : '/'}
+                                            icon.name === 'LinkedIn' ? `${social?.linkedin}` : '/'}
 
                             className='hover:fill-primary_Color_Light cursor-pointer'>{icon.icon}</Link>
                     </div>
