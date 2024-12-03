@@ -12,13 +12,13 @@ const Services = async ({ params }) => {
         <section className=''>
             <div className='text-center pt-20'>
                 {
-                    locale === 'ar' ? (<h3 className=' text-xl lg:text-5xl font-semibold text-color_1'>خدمات
+                    locale === 'ar' ? (<h1 className=' text-xl lg:text-5xl font-semibold text-color_1'>خدمات
                         TOOTH <span className='text-color_2'>GUARD</span>
 
-                    </h3>) : (<h3 className=' text-xl lg:text-5xl font-semibold text-color_1'>
+                    </h1>) : (<h1 className=' text-xl lg:text-5xl font-semibold text-color_1'>
                         TOOTH <span className='text-color_2'>GUARD</span> Services
 
-                    </h3>)
+                    </h1>)
                 }
 
 
