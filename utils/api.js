@@ -8,9 +8,7 @@ const requestOptions = {
   method: "GET",
   headers: myHeaders,
   redirect: "follow",
-  next:{
-    revalidate:10
-}
+
 };
 
 const response = await fetch(`https://api.tooth-guard.com/${variable}`, requestOptions)

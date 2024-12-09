@@ -39,7 +39,7 @@ const About = async ({ params }) => {
     <div>
       <div className="bg-gradient-to-r p-1 sm:mt-0  from-blue-500 to-green-400 text-white h-[250px] flex flex-col items-center justify-center">
         <div className="text-center">
-          <p className="sm:text-5xl text-xl  font-bold mb-4">{t("About Us")}</p>
+          <h1 className="sm:text-5xl text-xl  font-bold mb-4">{t("About Us")}</h1>
           <p className="text-lg mb-8">
 
           </p>

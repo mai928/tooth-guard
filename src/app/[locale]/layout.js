@@ -6,7 +6,6 @@ import initTranslations from "../i18n";
 import TranslationsProvider from "@/components/TranslationsProvider";
 import { dir } from "i18next";
 import { getMetadata } from "@/components/getMetadata";
-import Head from "next/head";
 
 const geistSans = localFont({
 	src: "./fonts/GeistVF.woff",
@@ -98,12 +97,12 @@ export default async function RootLayout({ children, params }) {
 
 	return (
 		<html lang={locale} dir={dir(locale)}>
-			<Head>
+			<head>
 				<meta
 					name="google-site-verification"
 					content="XmE4cT8eN-RTm7fLfT_e-ap_toosMuXQwzYRDNRZqaM"
 				/>
-			</Head>
+			</head>
 			<body
 				className={`${geistSans.variable} ${geistMono.variable} antialiased`}
 			>

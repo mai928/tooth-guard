@@ -3,6 +3,7 @@ import { fetchData } from '../../utils/api';
 import initTranslations from "@/app/i18n";
 import DOMPurify from "isomorphic-dompurify";
 import Link from "next/link";
+import BlogSlider from "./BlogSlider";
 const OurSerives = async ({ params }) => {
 
   const i18nNamespaces = ["home"];
@@ -23,7 +24,7 @@ const OurSerives = async ({ params }) => {
           {t("Dental Insights")}
         </h2>
         <p className="text-gray-500">{t("Visit the Tooth Guard Clinics blog for the latest tips, trends, and insights into dental health. Our articles cover everything you need to know to maintain a bright, healthy smile.")}</p>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+        {/* <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
           {service?.map((respons, index) => (
             <div
               key={index}
@@ -57,6 +58,11 @@ const OurSerives = async ({ params }) => {
               </div>
             </div>
           ))}
+        </div> */}
+
+        <div className="">
+          <BlogSlider />
+
         </div>
       </div>
     </div>

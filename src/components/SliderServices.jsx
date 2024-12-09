@@ -13,6 +13,42 @@ import { fetchData } from "../../utils/api";
 import Link from "next/link";
 
 
+// export async function getStaticPaths({ locales }) {
+//     const paths = [];
+  
+//     // Fetch all services in both languages
+//     const servicesEn = await fetchData('api/services', 'en'); // Get data for English
+//     const servicesAr = await fetchData('api/services', 'ar'); // Get data for Arabic
+  
+//     // Assuming the services API returns slugs for both languages
+//     const allSlugsEn = servicesEn?.data.map(service => service.slug);
+//     const allSlugsAr = servicesAr?.data.map(service => service.slug);
+  
+//     // Create paths for each language
+//     allSlugsEn.forEach(slug => {
+//       locales.forEach(locale => {
+//         const translatedSlug = locale === 'ar' ? getTranslatedSlug(slug, 'ar') : slug;
+//         paths.push({ params: { slug: translatedSlug }, locale });
+//       });
+//     });
+  
+//     return {
+//       paths,
+//       fallback: 'blocking',
+//     };
+//   }
+  
+//   // Helper function to get translated slug for Arabic
+//   function getTranslatedSlug(slug, locale) {
+//     if (locale === 'ar') {
+//       // Here, you should fetch the Arabic version of the slug from your API or CMS
+//       // Assuming the API returns the translated slug for Arabic
+//       return `translated-${slug}`; // Replace with real translation logic
+//     }
+//     return slug; // Return the original slug for English
+//   }
+  
+
 const SliderServices = () => {
     const [services, setData] = useState([])
     const { t, i18n } = useTranslation()
@@ -22,7 +58,7 @@ const SliderServices = () => {
             setData(service.data)
         }
         AboutFetch()
-    }, [])
+    }, [i18n.language])
 
     return (
         <Swiper
@@ -70,7 +106,7 @@ const SliderServices = () => {
                                 <div className="group">
                                     <Link
                                         className="text-md border-[1px] p-2 border-gray-200 border-opacity-30 rounded-sm shadow-lg transform transition duration-500 ease-in-out group-hover:scale-125"
-                                        href={`/services/${items.slug}`}
+                                        href={`/services/${t(items.slug)}`}
                                     >
                                         {t("Read More")}
                                     </Link>
