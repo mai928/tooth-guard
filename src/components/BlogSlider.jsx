@@ -23,12 +23,12 @@ const BlogSlider = () => {
         };
         fetchBlogs();
     }, [i18n.language]);
-    
+
 
     return (
         <Swiper
             breakpoints={
-                 {
+                {
                     640: {
                         slidesPerView: 2,
                         spaceBetween: 20,
@@ -80,10 +80,7 @@ const BlogSlider = () => {
                             <div className="group mt-7 mb-4">
                                 <Link
                                     className="text-md border-[1px] p-2 text-blue-800 shadow-md"
-                                    href={`/blog/${(article.slug)}`}
-
-                                    // href={i18n?.language === 'ar'? `/blog/${t(article.slug)}`}
-
+                                    href={`/blogs/${t(article.slug)}`}
 
                                 >
                                     {t("Read More")}

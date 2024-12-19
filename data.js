@@ -144,7 +144,7 @@ export const navbarLink = [
 		name: "Services",
 	},
 	{
-		path: "/blog",
+		path: "/blogs",
 		name: "Blog & Insights",
 	},
 	{

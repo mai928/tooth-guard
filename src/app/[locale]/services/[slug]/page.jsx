@@ -10,7 +10,7 @@ const ServicesDetails = async ({ params }) => {
     const { locale } = params
     const { t } = await initTranslations(locale, i18nNamespaces)
     
-    const service = await fetchData(`api/single-service/${t(slug)}`, locale)
+    const service = await fetchData(`api/single-service/${(slug)}`, locale)
     const singleService = service?.data;
 
     return (

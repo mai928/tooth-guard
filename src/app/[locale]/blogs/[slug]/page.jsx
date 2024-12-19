@@ -5,14 +5,10 @@ import DOMPurify from 'isomorphic-dompurify';
 
 const BlogDetails = async ({ params }) => {
   const i18nNamespaces = ["home"];
-  // const slug = params.slug;
-  console.log('params::', params)
+  const { slug } = params;
   const { locale } = params;
   const { t } = await initTranslations(locale, i18nNamespaces);
-  const local_ar = params.locale
-  const slug =local_ar ==='ar'? t(params.slug) :params.slug
-  const BlogData = local_ar ==='ar' ? await fetchData(`api/single-blog/${(slug)}`, 'ar') : await fetchData(`api/single-blog/${(slug)}`, 'en');
-  // const BlogData = await fetchData(`api/single-blog/${t(slug)}`,'ar');
+  const BlogData = await fetchData(`api/single-blog/${(slug)}`, locale);
 
   const BlogDetails = BlogData?.data;
 
