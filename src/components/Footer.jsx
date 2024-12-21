@@ -1,5 +1,5 @@
 
-import {  navbarLink } from '../../data';
+import { navbarLink } from '../../data';
 import Link from 'next/link';
 import React from 'react';
 import Social from './Social';
@@ -20,13 +20,13 @@ const Footer = async ({ params }) => {
     const social = socialDData?.data
 
     return (
-        <section className='  lg:px-40 lg:py-10 z-0'>
+        <section className=' bg-white  w-full lg:px-10 lg:py-10 z-0'>
             <div className='  block lg:flex  pt-10  gap-16  text-center lg:text-start'>
 
                 <div className='lg:w-[30%] text-center'>
                     <h3 className='text-color_2  text-xl mb-5 font-semibold uppercase'>{t("Contact Us")}</h3>
                     {
-                        setting?.emails?.map((item ,index) => (
+                        setting?.emails?.map((item, index) => (
                             <p key={index} className='text-color_1 font-semibold my-4'>{item}</p>
 
                         ))
@@ -34,7 +34,7 @@ const Footer = async ({ params }) => {
 
                     {
 
-                        setting?.phones?.map((item ,index) => (
+                        setting?.phones?.map((item, index) => (
                             <p key={index} className='text-color_1 font-semibold my-4'>{item}</p>
 
                         ))
@@ -43,14 +43,14 @@ const Footer = async ({ params }) => {
 
                     {
 
-                        setting?.addresses?.map((item ,index) => (
+                        setting?.addresses?.map((item, index) => (
                             <p key={index} className='text-color_1 font-semibold my-4'>{item}</p>
 
                         ))
 
                     }
 
-                   
+
                 </div>
 
                 <div className='lg:w-[30%] text-center'>
@@ -68,7 +68,7 @@ const Footer = async ({ params }) => {
                 <div className='lg:w-[20%] text-center'>
                     <h3 className='text-color_2  text-xl font-semibold pb-14 uppercase'>{t("Follow Links")}</h3>
                     <div className='flex  justify-center items-center mb-10 lg:mb-0'>
-                    <Social social={social} settings={setting}/>
+                        <Social social={social} settings={setting} />
 
                     </div>
                 </div>

@@ -3,6 +3,28 @@ import React from 'react'
 import { fetchData } from '../../../../../utils/api';
 import DOMPurify from 'isomorphic-dompurify';
 
+
+
+export async function generateMetadata({ params }) {
+  const i18nNamespaces = ["home"];
+  const { locale, slug } = params
+  const { t } = await initTranslations(locale, i18nNamespaces)
+
+  const service = await fetchData(`api/single-service/${(slug)}`, locale)
+  const singleService = service?.data;
+
+  return {
+    title: singleService.meta_title  || '',
+    description: singleService.meta_details || '',
+    other: {
+      title: singleService.meta_title || '',
+    }
+
+  }
+}
+
+
+
 const ServicesDetails = async ({ params }) => {
     const { slug } = params
 
@@ -17,13 +39,13 @@ const ServicesDetails = async ({ params }) => {
         <section>
         <div className="bg-gradient-to-r p-1 sm:mt-0 from-blue-500 to-green-400 text-white h-[250px] flex flex-col items-center justify-center">
           <div className="text-center">
-            <h1 className="text-4xl font-semibold h1y-5">{singleService.title}</h1>
+            <h1 className="text-4xl font-semibold h1y-5">{t(singleService.title)}</h1>
           </div>
         </div>
 
         
         <div className="px-5 lg:px-10 py-20">
-        <div className="relative">
+        <div className=" relative">
           <img
             className="float-end w-full lg:w-[50%] mx-5 mb-5"
             alt="Blog"

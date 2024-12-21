@@ -3,13 +3,31 @@ import React from 'react';
 import { fetchData } from '../../../../../utils/api';
 import DOMPurify from 'isomorphic-dompurify';
 
+
+export async function generateMetadata({ params }) {
+  const i18nNamespaces = ["home"];
+  const { locale, slug } = params
+  const { t } = await initTranslations(locale, i18nNamespaces)
+
+  const service = await fetchData(`api/single-blog/${(slug)}`, locale)
+  const singleService = service?.data;
+
+  return {
+    title: singleService.meta_title || '',
+    description: singleService.meta_details || '',
+    other: {
+      title: singleService.meta_title || '',
+    }
+
+  }
+}
+
 const BlogDetails = async ({ params }) => {
   const i18nNamespaces = ["home"];
   const { slug } = params;
   const { locale } = params;
   const { t } = await initTranslations(locale, i18nNamespaces);
   const BlogData = await fetchData(`api/single-blog/${(slug)}`, locale);
-
   const BlogDetails = BlogData?.data;
 
 
